@@ -1,5 +1,6 @@
-package com.marcinmajkowski;
+package com.marcinmajkowski.lepszyklub.reservation;
 
+import com.marcinmajkowski.lepszyklub.reservation.LepszyKlubReservationApplication;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.web.WebAppConfiguration;

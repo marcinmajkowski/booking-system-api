@@ -1,4 +1,4 @@
-package com.marcinmajkowski;
+package com.marcinmajkowski.lepszyklub.reservation;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
