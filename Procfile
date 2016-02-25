@@ -1,1 +1,1 @@
-web: java -Dserver.port=$PORT -jar  target/lepszy-klub-reservation-0.0.1-SNAPSHOT.jar
+web: java -Dserver.port=$PORT -jar  target/*.jar --spring.profiles.active=prod --spring.datasource.url=$JDBC_DATABASE_URL --spring.datasource.username=$JDBC_DATABASE_USERNAME --spring.datasource.password=$JDBC_DATABASE_PASSWORD
