@@ -1,4 +1,4 @@
-package com.marcinmajkowski.lepszyklub.reservation;
+package com.marcinmajkowski.bookingsystem.reservation;
 
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;

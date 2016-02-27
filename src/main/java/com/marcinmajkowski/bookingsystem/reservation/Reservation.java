@@ -1,4 +1,4 @@
-package com.marcinmajkowski.lepszyklub.reservation;
+package com.marcinmajkowski.bookingsystem.reservation;
 
 import javax.persistence.*;
 

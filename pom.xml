@@ -4,12 +4,12 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.marcinmajkowski</groupId>
-	<artifactId>lepszy-klub-reservation</artifactId>
+	<artifactId>booking-system</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>lepszy-klub-reservation</name>
-	<description>Reservation system for Lepszy Klub</description>
+	<name>booking-system</name>
+	<description>Booking system built with Spring Boot, AngularJS and Bootstrap.</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -73,6 +73,5 @@
 			</plugin>
 		</plugins>
 	</build>
-	
 
 </project>
