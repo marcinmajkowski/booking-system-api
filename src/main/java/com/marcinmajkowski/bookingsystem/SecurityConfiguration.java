@@ -2,6 +2,7 @@ package com.marcinmajkowski.bookingsystem;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
@@ -15,9 +16,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .httpBasic()
                 .and()
                 .authorizeRequests()
-                .antMatchers("/api/v1/mail")
-                .authenticated()
-                .anyRequest()
-                .permitAll();
+                .antMatchers("/", "/index.html").permitAll()
+                .antMatchers(HttpMethod.GET, "/api/v1/trainings").permitAll()
+                .anyRequest().authenticated();
     }
 }
