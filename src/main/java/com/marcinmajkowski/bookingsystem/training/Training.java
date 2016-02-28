@@ -34,6 +34,9 @@ public class Training {
     @JsonIgnore
     private Set<Booking> bookings;
 
+    @Column(nullable = false)
+    private Boolean visible;
+
     public Date getDate() {
         return date;
     }
@@ -74,6 +77,14 @@ public class Training {
         this.bookings = bookings;
     }
 
+    public Boolean getVisible() {
+        return visible;
+    }
+
+    public void setVisible(Boolean visible) {
+        this.visible = visible;
+    }
+
     public Long getId() {
         return id;
     }
@@ -90,6 +101,7 @@ public class Training {
                 ", capacity=" + capacity +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
+                ", visible='" + visible + '\'' +
                 '}';
     }
 }

@@ -27,7 +27,7 @@ public class Customer {
     @Temporal(TemporalType.DATE)
     private Date birthday;
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String email;
 
     @OneToMany(mappedBy = "customer")
