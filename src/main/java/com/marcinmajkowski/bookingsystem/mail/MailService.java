@@ -40,4 +40,10 @@ public class MailService {
 
         return uuid.toString();
     }
+
+    public void send(SimpleMailMessage mailMessage) {
+        mailMessage.setFrom(mailUsername);
+
+        mailSender.send(mailMessage);
+    }
 }
