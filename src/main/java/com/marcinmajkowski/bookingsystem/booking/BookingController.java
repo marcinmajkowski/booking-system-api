@@ -15,8 +15,8 @@ import org.springframework.web.servlet.mvc.multiaction.NoSuchRequestHandlingMeth
 import java.util.Date;
 import java.util.UUID;
 
-@RestController
-@RequestMapping("${spring.data.rest.base-path}/bookings")
+//@RestController
+//@RequestMapping("${spring.data.rest.base-path}/bookings")
 public class BookingController {
 
     private static final Log logger = LogFactory.getLog(BookingController.class);
