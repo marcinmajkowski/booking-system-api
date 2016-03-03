@@ -4,6 +4,7 @@ import com.marcinmajkowski.bookingsystem.mail.MailService;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.rest.core.annotation.*;
 import org.springframework.stereotype.Component;
 
@@ -15,6 +16,9 @@ import java.util.UUID;
 public class BookingEventHandler {
 
     private final static Log logger = LogFactory.getLog(BookingEventHandler.class);
+
+    @Value("${booking-system.url}")
+    private String applicationUrl;
 
     @Autowired
     private MailService mailService;
@@ -28,7 +32,7 @@ public class BookingEventHandler {
 
     @HandleAfterCreate
     public void handleBookingAfterCreate(Booking booking) {
-        BookingConfirmationMail confirmationMail = new BookingConfirmationMail(booking);
+        BookingConfirmationMail confirmationMail = new BookingConfirmationMail(booking, applicationUrl);
         mailService.send(confirmationMail.simpleMailMessage());
     }
 

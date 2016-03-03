@@ -2,8 +2,6 @@ package com.marcinmajkowski.bookingsystem.booking;
 
 import org.springframework.mail.SimpleMailMessage;
 
-import java.net.InetAddress;
-import java.net.UnknownHostException;
 import java.util.Date;
 import java.util.UUID;
 
@@ -21,13 +19,16 @@ public class BookingConfirmationMail {
 
     private final Date trainingDate;
 
-    public BookingConfirmationMail(Booking booking) {
+    private final String applicationUrl;
+
+    public BookingConfirmationMail(Booking booking, String applicationUrl) {
         this.confirmationCode = booking.getConfirmationCode();
         this.bookingId = booking.getId();
         this.customerEmail = booking.getCustomer().getEmail();
         this.customerName = booking.getCustomer().getFirstName();
         this.trainingName = booking.getTraining().getName();
         this.trainingDate = booking.getTraining().getDate();
+        this.applicationUrl = applicationUrl;
     }
 
     public SimpleMailMessage simpleMailMessage() {
@@ -48,22 +49,13 @@ public class BookingConfirmationMail {
     //TODO internationalization
     //TODO confirmation link
     private String text() {
-
-        //TODO need better solution here
-        String hostName = "localhost";
-        try {
-            hostName = InetAddress.getLocalHost().getHostAddress();
-        } catch (UnknownHostException e) {
-            e.printStackTrace();
-        }
-
         return "Hi " + customerName + "!"
                 + "\n"
                 + "\n"
                 + "To confirm your booking, click the following link:"
                 + "\n"
                 + "\n"
-                + "http://" + hostName + "/api/v1/bookings/" + bookingId + "/confirmation?code="
+                + "http://" + applicationUrl + "/api/v1/bookings/" + bookingId + "/confirmation?code="
                 + confirmationCode.toString()
                 + "\n"
                 + "\n"
