@@ -8,8 +8,6 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
-import java.util.UUID;
-
 @Service
 public class MailService {
 
@@ -23,22 +21,6 @@ public class MailService {
     @Autowired
     public MailService(JavaMailSender mailSender) {
         this.mailSender = mailSender;
-    }
-
-    public String send(String to) {
-        UUID uuid = UUID.randomUUID();
-
-        SimpleMailMessage message = new SimpleMailMessage();
-        message.setFrom(mailUsername);
-        message.setTo(to);
-        message.setSubject("Test message " + uuid);
-        message.setText("Sent using booking system.");
-
-        logger.debug("Sending message");
-        mailSender.send(message);
-        logger.info("Message sent");
-
-        return uuid.toString();
     }
 
     public void send(SimpleMailMessage mailMessage) {

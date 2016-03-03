@@ -1,6 +1,7 @@
 package com.marcinmajkowski.bookingsystem.booking;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.marcinmajkowski.bookingsystem.customer.Customer;
 import com.marcinmajkowski.bookingsystem.training.Training;
@@ -24,9 +25,11 @@ public class Booking {
     @ManyToOne(optional = false)
     private Customer customer;
 
+    @JsonIgnore
     @Column(nullable = false)
     private UUID confirmationCode;
 
+    @JsonIgnore
     @Column(nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     private Date timestamp;
