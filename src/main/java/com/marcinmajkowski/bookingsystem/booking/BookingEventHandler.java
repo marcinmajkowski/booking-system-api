@@ -17,7 +17,7 @@ public class BookingEventHandler {
 
     private final static Log logger = LogFactory.getLog(BookingEventHandler.class);
 
-    @Value("${booking-system.url}")
+    @Value("${booking-system.api.url}")
     private String applicationUrl;
 
     @Autowired
