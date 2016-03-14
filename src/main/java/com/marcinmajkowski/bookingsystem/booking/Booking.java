@@ -12,6 +12,7 @@ import java.util.Date;
 import java.util.UUID;
 
 @Entity
+@Table(uniqueConstraints = @UniqueConstraint(columnNames = {"training_id", "customer_id"}))
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Booking {
 
