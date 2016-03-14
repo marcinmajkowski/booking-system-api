@@ -55,7 +55,7 @@ public class BookingConfirmationMail {
                 + "To confirm your booking, click the following link:"
                 + "\n"
                 + "\n"
-                + applicationUrl + "/api/v1/bookings/" + bookingId + "/confirmation?code="
+                + "http://" + applicationUrl + "/v1/bookings/" + bookingId + "/confirmation?code="
                 + confirmationCode.toString()
                 + "\n"
                 + "\n"
