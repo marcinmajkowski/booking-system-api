@@ -49,7 +49,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .jdbcAuthentication()
                 .dataSource(dataSource)
                 //FIXME now email passwords are case-sensitive
-                .usersByUsernameQuery("select email, email, true from customer where email=?")
+                .usersByUsernameQuery("select email, card_code, true from customer where email=?")
                 .authoritiesByUsernameQuery("select email, 'ROLE_USER' from customer where email=?")
                 .and()
                 .inMemoryAuthentication()

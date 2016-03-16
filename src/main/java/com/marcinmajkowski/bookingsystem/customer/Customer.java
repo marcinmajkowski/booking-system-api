@@ -4,8 +4,10 @@ import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.marcinmajkowski.bookingsystem.booking.Booking;
+import org.hibernate.validator.constraints.Email;
 
 import javax.persistence.*;
+import javax.validation.constraints.Pattern;
 import java.util.Date;
 import java.util.Set;
 
@@ -28,7 +30,12 @@ public class Customer {
     private Date birthday;
 
     @Column(nullable = false, unique = true)
+    @Email
     private String email;
+
+    @Column(nullable = false, unique = true)
+    @Pattern(regexp = "\\d{12}")
+    private String cardCode;
 
     @OneToMany(mappedBy = "customer")
     @JsonIgnore
@@ -66,6 +73,14 @@ public class Customer {
         this.email = email;
     }
 
+    public String getCardCode() {
+        return cardCode;
+    }
+
+    public void setCardCode(String cardCode) {
+        this.cardCode = cardCode;
+    }
+
     public Set<Booking> getBookings() {
         return bookings;
     }
@@ -90,6 +105,7 @@ public class Customer {
                 ", lastName='" + lastName + '\'' +
                 ", birthday=" + birthday +
                 ", email='" + email + '\'' +
+                ", cardCode='" + cardCode + '\'' +
                 '}';
     }
 }
